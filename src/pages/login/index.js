@@ -1,18 +1,45 @@
 import React from "react";
 import "./index.css";
+import users from "../../data/data.json";
 
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
 import { VscGithub } from "react-icons/vsc";
 
-
 function LoginPage() {
-
+  function login() {
+    let usuario = document.querySelector("#user");
+    let pass = document.querySelector("#pass");
+    /*     let listaUser = [];
+     */
+    let userValid = {
+      nome: "Raul Raimundo Pires",
+      senha: "Dy0NRBP9nH",
+    };
+    console.log(usuario.value);
+    console.log(pass.value);
+    let listaUser = users;
+    listaUser.forEach((item) => {
+      if (usuario.value == item.nome && pass.value == item.senha) {
+        userValid = {
+          Username: item.nome,
+          Password: item.senha,
+        };
+        console.log(userValid);
+      }
+    });
+    if (
+      usuario.value == userValid.Username &&
+      pass.value == userValid.Password
+    ) {
+      console.log("toaqui");
+    } else alert("Senha ou Usuário incorreta!");
+  }
 
   return (
     <div className="card">
       <div className="titleLogin">
-        <h1>Bem vindo!</h1>
+        <h1 onClick={login}>Bem vindo!</h1>
         <span>
           Olá, estamos muito felizes por te receber aqui, logue junte-se a nós.
         </span>
@@ -54,5 +81,4 @@ function LoginPage() {
     </div>
   );
 }
-
 export default LoginPage;
