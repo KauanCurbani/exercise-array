@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route exact path="/" element={<LoginPage />} />{" "}
+        <Route exact path="/" element={<LoginPage />} />
         <Route path="/user" element={<User />} />
       </Routes>
     </div>
