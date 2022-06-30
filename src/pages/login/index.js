@@ -1,12 +1,14 @@
 import React from "react";
 import "./index.css";
 import users from "../../data/data.json";
-
+import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
 import { VscGithub } from "react-icons/vsc";
 
 function LoginPage() {
+  const navigate = useNavigate()
+
   function login() {
     let usuario = document.querySelector("#user");
     let pass = document.querySelector("#pass");
@@ -23,14 +25,22 @@ function LoginPage() {
       }
     });
 
-    if (usuario.value == userValid.Username && pass.value == userValid.Password) {
+    if (
+      usuario.value == userValid.Username &&
+      pass.value == userValid.Password
+    ) {
       listaUser.forEach((item) => {
-        if(item.nome === userValid.Username){
-          console.log("validado")
+        if (item.nome === userValid.Username) {
+          var indice = listaUser.indexOf(
+            listaUser.filter(function (obj) {
+              return obj.nome == userValid.Username;
+            })[0]
+          );
+          localStorage.setItem("index", indice);
+          navigate("/user")
         }
-      })
-    } 
-    else alert("Senha ou Usuário incorreta!");
+      });
+    } else alert("Senha ou Usuário incorreta!");
   }
 
   return (
@@ -41,7 +51,7 @@ function LoginPage() {
           Olá, estamos muito felizes por te receber aqui, logue junte-se a nós.
         </span>
       </div>
-      <form className="inputs">
+      <form className="inputs" onSubmit={login}>
         <input
           type="text"
           id="user"
