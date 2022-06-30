@@ -3,6 +3,7 @@ import "./style.css";
 import data from "../../data/data.json";
 import { BiUserCircle, BiArrowBack } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
+import { HiOutlineLocationMarker } from "react-icons/hi";
 
 function User() {
   const navigate = useNavigate();
@@ -23,6 +24,9 @@ function User() {
           <h1 id="nomeUser">{data[currUser].nome}</h1>
           <p>{data[currUser].signo}</p>
         </div>
+        <h1 id="localInfo">
+          {data[currUser].cidade} - {data[currUser].estado} <HiOutlineLocationMarker id="iconLocal" />
+        </h1>
         <div id="user-information">
           <div id="user-information-left">
             <div className="information">

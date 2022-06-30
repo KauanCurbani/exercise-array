@@ -83,3 +83,18 @@
   top: 30px;
   left: 30px;
 }
+
+#localInfo {
+  font-size: 18px;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#iconLocal {
+  text-align: center;
+  font-size: 18px;
+  color: #e00208;
+  margin: 0 0 0 5px;
+}
