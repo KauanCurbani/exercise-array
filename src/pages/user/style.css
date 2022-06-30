@@ -15,12 +15,18 @@
   font-family: "Poppins", sans-serif;
 }
 #user-img {
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 #icon-user-img {
   font-size: 150px;
+  position: absolute;
+  top: 0;
+  background-color: #fff;
+  border-radius: 50%;
+  transform: translateY(-50%);
 }
 #user-img h1 {
   color: #000000;
@@ -34,6 +40,7 @@
 #user-information {
   width: 100%;
   display: flex;
+  margin-top: 50px;
 }
 #user-information-left {
   width: 100%;
@@ -41,8 +48,8 @@
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr;
   grid-column-gap: 10px;
-  grid-row-gap: 10px;
-  margin: auto ;
+  grid-row-gap: 30px;
+  margin: auto;
 }
 #user-information-right {
   flex: 1;
@@ -59,7 +66,6 @@
 #user-information-left h2 {
   color: #e00208;
   font-size: 15px;
-  margin-top: 50px;
   width: 60%;
 }
 #user-information-left p {
