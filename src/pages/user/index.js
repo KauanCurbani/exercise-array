@@ -9,19 +9,19 @@ function User() {
   let currUser = 15;
   currUser = localStorage.getItem("index");
 
-function voltar(){
-    localStorage.clear()
-    navigate("/")
-}
+  function voltar() {
+    localStorage.clear();
+    navigate("/");
+  }
 
   return (
     <div>
       <main id="main-user">
-        <BiArrowBack onClick={voltar}/>
-        <h1>Seu Perfil</h1>
+        <BiArrowBack id="btnVoltar" onClick={voltar} />
         <div id="user-img">
           <BiUserCircle id="icon-user-img" />
-          <h1>{data[currUser].nome}</h1>
+          <h1 id="nomeUser">{data[currUser].nome}</h1>
+          <p>{data[currUser].signo}</p>
         </div>
         <div id="user-information">
           <div id="user-information-left">
@@ -45,9 +45,19 @@ function voltar(){
               <h2>Sexo:</h2>
               <p>{data[currUser].sexo}</p>
             </div>
-            <div className="information"></div>
+            <div className="information">
+              <h2>E-mail:</h2>
+              <p>{data[currUser].email}</p>
+            </div>
+            <div className="information">
+              <h2>Celular:</h2>
+              <p>{data[currUser].celular}</p>
+            </div>
+            <div className="information">
+              <h2>Telefone:</h2>
+              <p>{data[currUser].telefone_fixo}</p>
+            </div>
           </div>
-          <div id="user-information-right"></div>
         </div>
       </main>
     </div>
