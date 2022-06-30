@@ -23,6 +23,7 @@ function User() {
           <h1 id="nomeUser">{data[currUser].nome}</h1>
           <p>{data[currUser].signo}</p>
         </div>
+          <div id="underline"></div>
         <div id="user-information">
           <div id="user-information-left">
             <div className="information">
