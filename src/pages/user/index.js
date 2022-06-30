@@ -1,15 +1,47 @@
 import React from "react";
 import "./style.css";
 import data from '../../data/data.json'
+import {BiUserCircle} from "react-icons/bi"
 
 function User() {
-let currUser = 0
+let currUser = 15
 
-console.log(data[currUser]);
   return (
   <div>
-    <main>
-        
+    <main id="main-user">
+        <h1>Seu Perfil</h1>
+        <div id="user-img">
+            <BiUserCircle id="icon-user-img"/>
+            <h1>{data[currUser].nome}</h1>
+        </div>
+        <div id="user-information">
+            <div id="user-information-left">
+                <div className="information">
+                <h2>Idade:</h2>
+                <p>{data[currUser].idade}</p>
+                </div>
+                <div className="information">
+                <h2>Data de Nascimento:</h2>
+                <p>{data[currUser].data_nasc}</p>
+                </div>
+                <div className="information">
+                <h2>CPF:</h2>
+                <p>{data[currUser].cpf}</p>
+                </div>
+                <div className="information">
+                <h2>RG:</h2>
+                <p>{data[currUser].rg}</p>
+                </div>
+                <div className="information">
+                <h2>Sexo:</h2>
+                <p>{data[currUser].sexo}</p>
+                </div>
+                <div className="information"></div>
+            </div>
+            <div id="user-information-right">
+
+            </div>
+        </div>
     </main>
   </div>
 )}

@@ -10,15 +10,9 @@ function LoginPage() {
   function login() {
     let usuario = document.querySelector("#user");
     let pass = document.querySelector("#pass");
-    /*     let listaUser = [];
-     */
-    let userValid = {
-      nome: "Raul Raimundo Pires",
-      senha: "Dy0NRBP9nH",
-    };
-    console.log(usuario.value);
-    console.log(pass.value);
     let listaUser = users;
+    let userValid;
+
     listaUser.forEach((item) => {
       if (usuario.value == item.nome && pass.value == item.senha) {
         userValid = {
@@ -28,12 +22,15 @@ function LoginPage() {
         console.log(userValid);
       }
     });
-    if (
-      usuario.value == userValid.Username &&
-      pass.value == userValid.Password
-    ) {
-      console.log("toaqui");
-    } else alert("Senha ou Usuário incorreta!");
+
+    if (usuario.value == userValid.Username && pass.value == userValid.Password) {
+      listaUser.forEach((item) => {
+        if(item.nome === userValid.Username){
+          console.log("validado")
+        }
+      })
+    } 
+    else alert("Senha ou Usuário incorreta!");
   }
 
   return (
