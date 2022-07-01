@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./index.css";
 import users from "../../data/data.json";
 import { useNavigate } from "react-router-dom";
@@ -7,40 +7,20 @@ import { FaApple } from "react-icons/fa";
 import { VscGithub } from "react-icons/vsc";
 
 function LoginPage() {
-  const navigate = useNavigate()
+  const [userLogado, setUserLogado] = useState();
 
   function login() {
-    let usuario = document.querySelector("#user");
-    let pass = document.querySelector("#pass");
-    let listaUser = users;
-    let userValid;
+    const userInput = document.getElementById("user");
+    const passInput = document.getElementById("pass");
 
-    listaUser.forEach((item) => {
-      if (usuario.value == item.nome && pass.value == item.senha) {
-        userValid = {
-          Username: item.nome,
-          Password: item.senha,
-        };
-        console.log(userValid);
-      }
+    const userLogando = users.find(function (user) {
+      return userInput.value === user.nome && passInput.value === user.senha;
     });
-
-    if (
-      usuario.value == userValid.Username &&
-      pass.value == userValid.Password
-    ) {
-      listaUser.forEach((item) => {
-        if (item.nome === userValid.Username) {
-          var indice = listaUser.indexOf(
-            listaUser.filter(function (obj) {
-              return obj.nome == userValid.Username;
-            })[0]
-          );
-          localStorage.setItem("index", indice);
-          navigate("/user")
-        }
-      });
-    } else alert("Senha ou Usuário incorreta!");
+    if(userLogado !== undefined){
+      console.log(userLogado)
+    }
+    else console.log("n logou!");
+    setUserLogado(userLogando);
   }
 
   return (

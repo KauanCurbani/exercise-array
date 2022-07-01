@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, createContext, useContext } from "react";
 import "./style.css";
 import data from "../../data/data.json";
 import { BiUserCircle, BiArrowBack } from "react-icons/bi";
@@ -7,12 +7,11 @@ import { HiOutlineLocationMarker } from "react-icons/hi";
 
 function User() {
   const navigate = useNavigate();
-  let currUser = 15;
-  currUser = localStorage.getItem("index");
-
+  let currUser = 12;
+  const [userLogado, setUserLogado] = useState();
+  
   function voltar() {
-    localStorage.clear();
-    navigate("/");
+    console.log(userLogado)
   }
 
   return (
@@ -29,7 +28,7 @@ function User() {
           {data[currUser].cidade} - {data[currUser].estado}{" "}
           <HiOutlineLocationMarker id="iconLocal" />
         </h1>
-
+        <div id="underline"></div>
         <div id="user-information">
           <div id="user-information-left">
             <div className="information">
