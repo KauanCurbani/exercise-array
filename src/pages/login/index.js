@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import MyContext from "../../Context/context";
 import "./index.css";
 import users from "../../data/data.json";
 import { useNavigate } from "react-router-dom";
@@ -7,7 +8,8 @@ import { FaApple } from "react-icons/fa";
 import { VscGithub } from "react-icons/vsc";
 
 function LoginPage() {
-  const [userLogado, setUserLogado] = useState();
+  const navigate = useNavigate()
+  const {user, setUser} = useContext(MyContext)
 
   function login() {
     const userInput = document.getElementById("user");
@@ -16,11 +18,11 @@ function LoginPage() {
     const userLogando = users.find(function (user) {
       return userInput.value === user.nome && passInput.value === user.senha;
     });
-    if(userLogado !== undefined){
-      console.log(userLogado)
-    }
-    else console.log("n logou!");
-    setUserLogado(userLogando);
+    if (userLogando !== undefined) {
+      setUser(userLogando)
+      navigate('/user')
+      console.log(user);
+    } else console.log("n logou!");
   }
 
   return (

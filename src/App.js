@@ -1,20 +1,20 @@
 import { Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/login/index";
 import User from "./pages/user/user";
+
 import React, { useState, useContext, createContext } from "react";
+import MyContext from "./Context/context";
 
 function App() {
-  const UserContext = createContext()
-  const [userLogado, setUserLogado] = useState();
-
+  const [user, setUser] = useState('')
   return (
     <div className="App">
-      <UserContext.Provider value={userLogado}>
+      <MyContext.Provider value={{user, setUser}}>
         <Routes>
           <Route exact path="/" element={<LoginPage />} />
           <Route path="/user" element={<User />} />
         </Routes>
-      </UserContext.Provider>
+      </MyContext.Provider>
     </div>
   );
 }
